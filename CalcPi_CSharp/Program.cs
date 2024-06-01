@@ -6,7 +6,7 @@ double r = 1.0;
 Console.WriteLine($"Radius of circle is {r}.");
 Console.Write("Please enter the number of dots to be dotted as an integer. >> ");
 string? inputText = Console.ReadLine() ?? throw new NullReferenceException("Please enter any number...");
-int dotsNum = InputTextRegex().IsMatch(inputText) ? int.Parse(inputText) : throw new ArgumentException("Please enter only integer values...");
+ulong dotsNum = InputTextRegex().IsMatch(inputText) ? ulong.Parse(inputText) : throw new ArgumentException("Please enter only integer values...");
 
 string result = calcPi(dotsNum, r).ToString("f10");
 Console.WriteLine($"Result: {result}");
@@ -16,14 +16,14 @@ Console.WriteLine($"Result: {result}");
 /// allDotsNum: The number of dots.
 /// r: The radius of square (r * r) that be doted.
 ///
-static double calcPi(int allDotsNum, double r)
+static double calcPi(ulong allDotsNum, double r)
 {
     int maxValueOfInt32 = 2147483647;
-    int dotsNumInCircle = 0;
+    ulong dotsNumInCircle = 0;
     double x;
     double y;
 
-    for (int i = 0; i < allDotsNum; i++)
+    for (ulong i = 0; i < allDotsNum; i++)
     {
         x = (double)RandomNumberGenerator.GetInt32(maxValueOfInt32) / maxValueOfInt32 * r;
         y = (double)RandomNumberGenerator.GetInt32(maxValueOfInt32) / maxValueOfInt32 * r;
